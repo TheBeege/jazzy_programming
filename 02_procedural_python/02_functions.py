@@ -32,3 +32,35 @@ x = add(2, 3)
 print(x)
 # Note, we could also have written print(add(2, 3))
 # This might be challenging to understand at first. Just like before, a becomes 2, b becomes 3, and they're added together to 5. After that, 5 is returned as the output of the add function. In this case, it kind of acts like a variable. Wherever add was invoked, the output value, 5, takes its place. The variable x is set to this output, and then we print x. Essentially, the output of a function is substituted wherever the invokation of that function happens. Lots of vocabulary, I know. Don't forget to check back in other areas for the definitions of things!
+
+# Here's something I personally really like about Python
+print("=======", "We're going to run add(b=1, a=2) and print it")
+print(add(b=1, a=2))
+# You can call arguments out of order. Earlier, the order of the value given to the invokation determined which argument the value was assigned to. However, in Python, you can assign values in any order if you reference the argument by name. Magical.
+
+# We can get even fancier
+def add_fancy(a, b, c=0):
+    return a + b + c
+# What is this crazy voodoo magic? The argument c has a default value of 0. This means that we can just leave out c, it will be set to 0, and everything will be okay.
+print("=======", "We're going to run add_fancy(3, 2) and print it")
+print(add_fancy(3, 2))
+print("=======", "We're going to run add_fancy(3, 2, 1) and print it")
+print(add_fancy(3, 2, 1))
+# Not too shabby. This is a super convenient way to make your functions more flexible. We can even take it a step further.
+
+def add_even_fancier(a, b, c=0, d=0):
+    return a + b + c + d
+print("=======", "We're going to run add_even_fancier(3, 2, d=5) and print it")
+print(add_even_fancier(3, 2, d=5))
+# Yep, you can combine optional arguments with calling them by name
+
+# Lastly, we can call functions from inside other functions
+def add_in_add(a, b, c):
+    return add(a, b) + c
+print("=======", "We're going to run add_in_add(1, 2, 3) and print it")
+print(add_in_add(1, 2, 3))
+# This isn't super crazy and is a feature of almost every language, but it may not be evident to beginners. This is what makes things both convenient and complicated
+
+# Functions can be complicated to a degree, but they can drastically shorten your code. One major tenant of programming is to stay DRY - Don't Repeat Yourself. The opposite is to be WET - we enjoy typing, or write everything twice, or waste everyone's time. Rather than write the same code over and over again, we can extract that code into a function and just call the function. This saves time, which is a key aspect of any business.
+
+# Great job so far! Play with defining and running your own functions
