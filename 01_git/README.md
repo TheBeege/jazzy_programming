@@ -53,3 +53,10 @@ After this section, you may want to pause. We'll cover the common workflow you'l
 
 ## Moving Forward
 Now that you have some of the basics, check out this site for the more advanced stuff: https://learngitbranching.js.org/
+
+You'll want to cover the following at minimum:
+* Branching
+* Merging
+* Rebase
+* Tagging
+* Reverting (Reversing Changes)
