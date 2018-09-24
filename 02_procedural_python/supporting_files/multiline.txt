@@ -1,0 +1,4 @@
+This file has several lines.
+This is to demonstrate reading a file line by line.
+Don't go into the dark.
+You'll get eaten by a gru.
