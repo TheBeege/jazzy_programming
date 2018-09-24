@@ -103,3 +103,112 @@ x = [5, 2, 0, 'hi', -1, True, None]
 # square brackets [] to denote itself and is mutable - you can change it.
 # Tuples can also store different types of values, but I wasn't thinking
 # about that before.
+# So let's demonstrate some of that mutable goodness
+print('x before:', x)
+x[0] = 10
+print('x after:', x)
+# This is how you can change a value inside a list. What about adding to a list?
+x.append('added!')
+print('x after adding a value:', x)
+# Nice. Removing a value?
+x.pop(-1)
+print('x after removing the added value:', x)
+# Now here's something cool
+value_removed = x.pop(0)
+print('value removed:', value_removed, '-- x:', x)
+# Pop not only removes the value at the given index (position) from the list.
+# It also returns it for use. An alternative is del:
+del(x[0])
+print('x after del:', x)
+# This removes the value without returning it. Granted, it would only be a
+# miniscule performance gain, but it's a thing.
+# What about this?
+
+y = [1, 2, 3, 4]
+z = x + y
+# Adding lists?!
+print('z:', z)
+# This... actually makes sense. Adding two lists creates a new list with the
+# contents of both. Here you'll get 0, 'hi', -1, True, None, 1, 2, 3, 4.
+# Magical. But what other collections are there?
+
+x = {1, 2, 3, 3, 3, 3, 3}
+print('x:', x)
+# This is a set. A set allows only one of each value. All of those repeating
+# 3's will simply disappear. Be aware: sets do not preserve order. The
+# major purpose of sets is for handling duplicates. While we're at it, let's
+# do a cool trick:
+
+print('4 is in x?', 4 in x)
+print('3 in x?', 3 in x)
+# Remember when we were checking if help was in helpful? Turns out, strings
+# are kind of a type of collection - they're a string of characters, a
+# collection of characters. The "in" operator works for any collection.
+# Now, what if I want a collection of things, but I want to keep track of
+# them by name instead of by position or to just see if they exist uniquely?
+
+x = {'key': 'value', 'bob_age': 30, 10: 'ten'}
+print('x:', x)
+# Notice this uses curly brackets like a set, but it's something different.
+# Python calls this a dictionary - a set of key-value pairs. Take a look
+
+print('x["key"]:', x['key'])
+print('x[10]:', x[10])
+# Here, 'key' and 10 are the keys in the dictionary. They are bound to the
+# values 'value' and 'ten', respectively. This way, if you need to reference
+# something by a name, you can do so easily. When talking about dictionaries
+# with other developers, it might be helpful to know they're also called
+# maps or hash tables. Maps are what they're called in languages like Java
+# and Javascript. A hash table is a specific way of creating a dictionary.
+# Now, what if I want to iterate through this? What if I want to access
+# all of the contents?
+
+for key in x.keys():
+    print('x key:', key)
+
+for value in x.values():
+    print('x value:', value)
+# Dictionaries have the methods keys() and values() to output a collection
+# of the keys and values of the dictionary, respectively. Here's a neat trick
+
+for key in x.keys():
+    print('key:', key, '-- value:', x[key])
+# This is a nifty way to access all the keys and values as needed. Just use the
+# key to access the value. Alternatively, if you want to get super fancy...
+
+for key, value in x.items():
+    print('items - key:', key, '-- value:', value)
+# I wanted to tell you both ways of doing this because I know that sometimes
+# I forget this method is called items(). Now, a little bit about what's going
+# on under the hood here. The items() method actually returns a tuple
+# each time it's called. The first item in that tuple is the key, and the
+# second item in that tuple is the value. Effectively, we're doing
+# multiple assignments when doing the aboves. You can set multiple variables
+# at the same time from a collection. This is called unpacking.
+# Let's demonstrate in a standalone way
+
+x, y, z = ('a', 1, True)
+print('x:', x)
+print('y:', y)
+print('z:', z)
+# Python unpacks each item in the collection, assigning it to the
+# corresponding variable, in order. The items() function essentially does this.
+# Let's get complicated real quick
+
+the_big_one = {
+    'some_list': [5, 10, 3.1, 22/7, True, 'lol'],
+    'da_set': {False, False, False, False},
+    'dict': {'key': 'val', 'name': 'Jazzimus Maximus'}
+}
+print('the_big_one:', the_big_one)
+# Yes, you can put collections inside each other. This is _super_ useful,
+# but can get really confusing, too. Let's play with this a bit
+
+print('last in list:', the_big_one['some_list'][-1])
+# When nesting (or putting one inside another) collections, you can reference
+# them one by one. So using ['some_list'] pulls out the list value from
+# the top-level dictionary. At that point, the list takes the place of
+# the_big_one['some-list'], so we can now treat that whole thing as a list.
+# By doing [-1] after that, we're accessing the last item in the list.
+# In this way, you can have N-dimensional space in code. Physicists love
+# this. 
