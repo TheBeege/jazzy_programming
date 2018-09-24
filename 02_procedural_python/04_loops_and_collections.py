@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 
 # Now for loops! Loops are how your program can accomplish the same logic
-# multiple times with little effort on your part. Let's dive in
+# multiple times with little effort on your part. Let's dive in, cuz this one
+# is suuuuper long. You ready?
 
 for i in range(10):
     print('i is: ', i)
@@ -210,5 +211,25 @@ print('last in list:', the_big_one['some_list'][-1])
 # the top-level dictionary. At that point, the list takes the place of
 # the_big_one['some-list'], so we can now treat that whole thing as a list.
 # By doing [-1] after that, we're accessing the last item in the list.
-# In this way, you can have N-dimensional space in code. Physicists love
-# this. 
+# In this way, you can have N-dimensional space in code. Theoretical
+# physicists love this. Okay, one last thing before we're done with this
+
+x = [2, 5, 2, 7, 10, 10]
+print('list x:', x)
+x = set(x)
+print('set x:', x)
+# This is type conversion. The variable x starts as a list. The set() function
+# converts it to a set, removing duplicates. This works for all types, if
+# a conversion makes sense from one type to the other
+
+x = tuple(x)
+print('tuple x:', x)
+x = list(x)
+print('list x:', x)
+# You'll notice in the printed output that the symbols around the collection
+# change to match the type of collection it is. Type conversion is useful for
+#  making a tuple mutable or removing duplicates from something.
+
+# Great job! At this point, you've covered most of the basic constructs.
+# Next, we'll work on more real-world stuff, like reading files and
+# downloading data from the internet
