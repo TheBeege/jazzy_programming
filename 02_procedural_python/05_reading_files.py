@@ -118,8 +118,5 @@ with sample_file_path.open() as file:
 # through the file, each row will be a dictionary, where the keys are the
 # field names, and the values are the corresponding value for that row
 
-# Great job getting this far! Next up, we'll download files from the internet.
-# While this likely wouldn't be required often, it's a good skill to be
-# familiar with just in case. Alternatively, if there's a case where you need
-# to update your data from a file off the internet, this'll have you covered.
-# See you in the next one!
+# Great job getting this far! Next, we're going to get into using libraries
+# from the internet because there's no reason for you to reinvent the wheel.
