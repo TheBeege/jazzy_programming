@@ -51,6 +51,9 @@ After this section, you may want to pause. We'll cover the common workflow you'l
 5. Use `git push` to take all of your local commits and get them up on Github in case your laptop 'splodes.
 6. Relax because your code is safe.
 
+## Setting Up This Project
+Now that you know how to use Git, let's use it to download this project, where you can do work. I usually setup a `projects` folder in my user directory (on Mac, `/home/<username>/projects`), and setup each of my projects there. This way, I always know where every project is. Once there, do `git clone https://github.com/TheBeege/jazzy_programming.git`. Now, you'll have this project copied to your local computer. 
+
 ## Moving Forward
 Now that you have some of the basics, check out this site for the more advanced stuff: https://learngitbranching.js.org/
 

@@ -118,5 +118,5 @@ with sample_file_path.open() as file:
 # through the file, each row will be a dictionary, where the keys are the
 # field names, and the values are the corresponding value for that row
 
-# Great job getting this far! Next, we're going to get into using libraries
-# from the internet because there's no reason for you to reinvent the wheel.
+# Great job getting this far! This should be all the absolute basics you need
+# for writing simple Python programs. 
