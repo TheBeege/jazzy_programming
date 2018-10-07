@@ -2,6 +2,8 @@
 
 Here, we're gonna cover the basics of Python. I've separated Python into procedural and object-oriented sections. Procedural is enough to get you started, but doing things in an object-oriented manner can help you organize code or at least understand others' systems and how they might work. We'll start with installing the latest version of Python.
 
+Note that everything below is only necessary for running things outside of Jupyter Notebook and Spyder. Anaconda sets up a whole Python environment for you. This is only for if you want a standalone Python installation outside of the Anaconda ecosystem. Since the focus is data science, that isn't likely. Regardless, it's here in case you decide you need it.
+
 ## Installing Python with Homebrew
 It's easy. Open terminal and run this:
 ```shell
