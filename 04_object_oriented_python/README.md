@@ -1,6 +1,8 @@
 # Object-Oriented Python
 
-Python supports an object-oriented model of programming. Object-oriented programming, or OOP, is a way to make code more modular and help developers think about things more easily. The idea is that programming often models the real world, and the real world is full of objects. As such, a programming language should have some concept of objects.
+Python supports an object-oriented model of programming. Object-oriented programming, or OOP, is a way to make code more modular and help developers think about things more easily. The idea is that programming often models the real world, and the real world is full of objects. As such, some programming languages have some concept of objects.
+
+If you're in a super hurry, you may want to skip this whole section. This will help you debug problems more effectively, but I'm not sure if OOP is a necessary concept in data science.
 
 ## What is an Object?
 An object really has two key things: it has properties, and it can do things. Properties translates to variables, and doing things translates to methods. So really, an object is just a way of group variables and methods together. However, these variables and methods are separate from the rest of the code. This is called encapsulation. An object encapsulates its variables and methods, keeping them separate from everything else.
