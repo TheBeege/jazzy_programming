@@ -87,6 +87,7 @@ These are pretty much useless to you, but it's worth recognizing. These are very
 ### Things I Don't Know How to Categorize
 * Hadoop - Hadoop is just a file system that can scale to store huge amounts of data. Often, Hadoop Hive will be setup for you to access this data in a SQL format
 * Spark - I know nothing about format at the time of writing this, but it is the choice system for data warehouses 
+* Cassandra - It's like a key-value store, relational database, and document store all had a baby. Also, Netflix uses it for highly redundant, high performance systems. They even have a tool called Chaos Monkey that random kills a Cassandra server to ensure the whole cluster is sufficiently redundant.
 
 ## Data Lakes
 Recently, the concept of a "data lake" has been popping up, but only the most mature and technically savvy organizations have the manpower and know-how to set them up. The core idea is that data will be stored in any number of different systems, a combination of key-value stores, relational databases, document stores, and who knows what else, but any data should be accessible via one interface. Theoretically, you should be able to get something from both MongoDB and Hadoop Hive using one query language, even though they're completely different systems. If you work at a company that has a data lake, please introduce me to their data team. I want to learn their crazy black magic.
