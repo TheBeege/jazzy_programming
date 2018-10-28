@@ -3,7 +3,7 @@
 ## High-level Order
 This is a first-pass and is subject to change.
 1. Git
-2. Procedural Python (WiP)
+2. Procedural Python
 3. Objective-Oriented Python (WiP)
 4. Data structures and algorithms (WiP)
 5. Databases (WiP)
