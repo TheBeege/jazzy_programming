@@ -86,4 +86,56 @@ join department d
 where d.department_head_id = 5
 ```
 
-Here, we'll get all employees' phone numbers whose department has a department head with id 5. Something worth noting: SQL statements are evaluated as a whole, with the exception of sub-statements (like sub-selects), which will be evaluated first. The join, the field selection, and the filtering should happen all at the same time from your perspective. Under the hood, this is not the case. The database will filter data in whatever order leads to the fastest result, deciding the path to take based on filtering logic, indexes, partitions, etc. It used to be the case that you needed to specify something like the department head filtering as another condition within the `ON` phrase in order for that filter to happen before joining _all_ departments to _all_ employees, but today's databases are smart enough to apply the filter before joining data if that's more efficient.
+Here, we'll get all employees' phone numbers whose department has a department head with id 5.
+
+Something worth noting: SQL statements are evaluated as a whole, with the exception of sub-statements (like sub-selects), which will be evaluated first. The join, the field selection, and the filtering should happen all at the same time from your perspective. Under the hood, this is not the case. The database will filter data in whatever order leads to the fastest result, deciding the path to take based on filtering logic, indexes, partitions, etc. It used to be the case that you needed to specify something like the department head filtering as another condition within the `ON` phrase in order for that filter to happen before joining _all_ departments to _all_ employees, but today's databases are smart enough to apply the filter before joining data if that's more efficient.
+
+We can also join multiple times.
+
+```sql
+select
+  *
+from employee e
+join employee_responsibility er
+  on er.employee_id = e.id
+join responsibility r
+  on r.id = er.responsibility_id
+join department d
+  on d.id = e.department_id
+```
+
+This will get all employees with all of their responsibilities and their department. Now, since an employee will have many responsibilities, employees will be duplicated when they have more than one responsibility. Let's make this nicer.
+
+```sql
+select
+  e.name,
+  e.phone_number,
+  e.email,
+  d.name as department_name,
+  dh.name as manager_name,
+  GROUP_CONCAT(r.name SEPARATOR ', ')
+from employee e
+join employee_responsibility er
+  on er.employee_id = e.id
+join responsibility r
+  on r.id = er.responsibility_id
+join department d
+  on d.id = e.department_id
+join employee dh
+  on d.department_head_id = dh.id
+group by
+  e.name,
+  e.phone_number,
+  e.email,
+  d.name,
+  dh.name
+```
+
+Now we're getting a little advanced. Let's go over what's going on here:
+* We're joining employee to itself via department. This last join represents the head of the department. Joining a table to itself is perfectly fine, whether directly or indirectly.
+* The [`GROUP_CONCAT`](https://dev.mysql.com/doc/refman/8.0/en/group-by-functions.html#function_group-concat) function is used for grouping multiple values into a single string. All of the values `r.name` will be put together into one string with `, ` separating them, leading to a nice, comma-delimited list.
+* We're using `GROUP BY` to allow the grouping of responsibilities. The `GROUP BY` phrase is used for aggregate functions, like `GROUP_CONCAT`, `MIN`, `MAX`, `AVG`, and many more. This means that all results that share the same fields listed in the `GROUP BY` phrase will be grouped together. Any other fields will either show the first encountered value or an aggregate value. Make sure not to forget to put the right fields in `GROUP BY`!
+
+All of these `JOIN` statements have been an `INNER JOIN`. `INNER JOIN` will only give you values that have matching records for the `ON` phrase. If you have an employee in the above example with no responsibilities or no department, the employee would not show up in the results. If you want to join two tables even if there's no match in one of them, you need an `OUTER JOIN`. These are either `LEFT JOIN` or `RIGHT JOIN`. If we used a `LEFT JOIN` from `employee` to `employee_responsibility`, we would still get all of our `employee` records, even if there was no matching `employee_responsibility` record. Alternatively, if we used a `RIGHT JOIN`, we would get all `employee_responsibility` records, even if there was no corresponding `employee` record.
+
+Lastly, there's `CROSS JOIN`, which will give you all possible combinations of records between the two sides of the join. This requires no `ON` phrase, since there's no matching between records. 
