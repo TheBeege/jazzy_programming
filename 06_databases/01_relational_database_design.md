@@ -137,7 +137,7 @@ create table employee_responsibility (
 
 This is a typical, basic, normalized database schema. Data that could be duplicated lives in separate tables. This way, we don't actually need to duplicate the data. We can relate tables with data that would be repeated to the tables that need the data. For example, we can connect the `department` and `employee` tables based on the `department_id` in the `employee` table in order to get the departments for each employee. This is common in applications due to multiple advantages. The most major one is that if a department name ever changes, we only need to update data in the department table. It also saves on disk space, which is helpful for application database that you don't want to get too large.
 
-You can see this schema in action using [SQLFiddle](http://sqlfiddle.com/#!9/7d742d), an online tool for experimenting with SQL. I recommend using later SQL examples with this to see how things work.
+You can see this schema in action using [DB-Fiddle](https://www.db-fiddle.com/f/pQkEECzSsz96MLYjoNEKJE/0), an online tool for experimenting with SQL. I recommend using later SQL examples with this to see how things work.
 
 However, once you get into the millions magnitude of database records, trying to do reporting across all of these tables together would be challenging. Here's the same data in a denormalized format, which would be helpful for reporting performance.
 
