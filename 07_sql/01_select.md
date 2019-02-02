@@ -50,3 +50,5 @@ where department_id in (select id from department where department_head_id = 1)
 ```
 
 We're getting a little crazy here. The `IN (...)` will match any value in the parenthesis, yes? We can use another select statement to create these values. In this case, there are actually better ways to accomplish this, but this is a good demonstrate of the technique. This is called a sub-select. We'll give better examples of sub-selects later. We're also renaming a field here. In our output, `phone_number` will instead be labeled `phone` for whatever system we're using to get the data out of the database.
+
+Think you've got a handle on it? [Here's some tables for you to experiment with](https://www.db-fiddle.com/f/pyphirvkr75DGQJ6FHVQQo/0).
