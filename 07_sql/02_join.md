@@ -75,3 +75,5 @@ Now we're getting a little advanced. Let's go over what's going on here:
 All of these `JOIN` statements have been an `INNER JOIN`. `INNER JOIN` will only give you values that have matching records for the `ON` phrase. If you have an employee in the above example with no responsibilities or no department, the employee would not show up in the results. If you want to join two tables even if there's no match in one of them, you need an `OUTER JOIN`. These are either `LEFT JOIN` or `RIGHT JOIN`. If we used a `LEFT JOIN` from `employee` to `employee_responsibility`, we would still get all of our `employee` records, even if there was no matching `employee_responsibility` record. Alternatively, if we used a `RIGHT JOIN`, we would get all `employee_responsibility` records, even if there was no corresponding `employee` record.
 
 Lastly, there's `CROSS JOIN`, which will give you all possible combinations of records between the two sides of the join. This requires no `ON` phrase, since there's no matching between records.
+
+Here's a [DB Fiddle](https://www.db-fiddle.com/f/wSJEShknQxPgKjA7HqMtED/1) to practice the skills you just learned.
