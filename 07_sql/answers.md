@@ -51,4 +51,5 @@
 | Jazzy | null |
 | Beege | null |
 | Bob | null |
+
 You'll see `null` values because there is no department that has a name with `Business Development`.
